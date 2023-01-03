@@ -1,0 +1,43 @@
+<div class="container">
+  <table mat-table [dataSource]="players">
+    <ng-container matColumnDef="player">
+      <th mat-header-cell *matHeaderCellDef>Spieler</th>
+      <td mat-cell *matCellDef="let player">{{ player.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="score">
+      <th mat-header-cell *matHeaderCellDef>Punkteanzahl</th>
+      <td mat-cell class="numbers" *matCellDef="let player">
+        {{ player.score }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="scoreActions">
+      <th mat-header-cell *matHeaderCellDef>Punktevergabe</th>
+      <td mat-cell *matCellDef="let player">
+        <button
+          (click)="calcPointsToPlayer(player.name, point)"
+          *ngFor="let point of points"
+          mat-button
+          color="primary"
+        >
+          <span *ngIf="!givePoints">-</span>
+          <label>
+            {{ point }}
+          </label>
+        </button>
+        <button (click)="setPoints(player.name, 0)" mat-button color="primary">
+          <label>Setze auf 0</label>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumnsPlayers"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumnsPlayers"></tr>
+  </table>
+  <!-- TODO maybe convert to mat table or display flex -->
+  <button (click)="togglePointCalcOperation()" mat-button color="primary">
+    <label *ngIf="givePoints">Abzieh Modus</label>
+    <label *ngIf="!givePoints">Hinzu Modus</label>
+  </button>
+</div>
