@@ -7,11 +7,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSliderModule } from '@angular/material/slider';
 import { QuestionBoardComponent } from './quiz-administration/question-board/question-board.component';
 import { QuizEditorComponent } from './quiz-editor/quiz-editor.component';
 import { QuizAdministrationComponent } from './quiz-administration/quiz-administration.component';
 import { RoundBoardComponent } from './quiz-administration/round-board/round-board.component';
 import { ScoreboardComponent } from './quiz-administration/scoreboard/scoreboard.component';
+import { CreateTableFormComponent } from './quiz-editor/create-table-form/create-table-form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +27,7 @@ import { ScoreboardComponent } from './quiz-administration/scoreboard/scoreboard
     RoundBoardComponent,
     QuizEditorComponent,
     QuizAdministrationComponent,
+    CreateTableFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +37,11 @@ import { ScoreboardComponent } from './quiz-administration/scoreboard/scoreboard
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatSliderModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

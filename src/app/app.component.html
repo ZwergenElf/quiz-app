@@ -1,10 +1,22 @@
 <!-- idea import client view as whole library app -->
 <mat-toolbar>
   <mat-toolbar-row>
-    <button routerLink="/admin" mat-button color="primary">
+    <button
+      mat-button
+      routerLink="/admin"
+      color="primary"
+      routerLinkActive="mat-mdc-raised-button"
+    >
       Quiz Administration
     </button>
-    <button routerLink="/editor" mat-button color="primary">Quiz Editor</button>
+    <button
+      mat-button
+      routerLink="/editor"
+      color="primary"
+      routerLinkActive="mat-mdc-raised-button"
+    >
+      Quiz Editor
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
 <router-outlet></router-outlet>

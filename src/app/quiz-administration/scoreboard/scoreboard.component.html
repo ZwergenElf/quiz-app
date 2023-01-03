@@ -36,8 +36,8 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumnsPlayers"></tr>
   </table>
   <!-- TODO maybe convert to mat table or display flex -->
-  <button (click)="togglePointCalcOperation()" mat-button color="primary">
-    <label *ngIf="givePoints">Abzieh Modus</label>
-    <label *ngIf="!givePoints">Hinzu Modus</label>
-  </button>
 </div>
+<button (click)="togglePointCalcOperation()" mat-button color="primary">
+  <label *ngIf="givePoints">Abzieh Modus</label>
+  <label *ngIf="!givePoints">Hinzu Modus</label>
+</button>

@@ -1,0 +1,18 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Tabellen Konfiguration</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <label>Spalten</label>
+      <mat-slider min="1" max="7" step="1" showTickMarks discrete>
+        <input matSliderThumb [(ngModel)]="tableConfig.cols" />
+      </mat-slider>
+      <label>Reihen</label>
+      <mat-slider min="1" max="5" step="1" showTickMarks discrete>
+        <input matSliderThumb [(ngModel)]="tableConfig.rows" />
+      </mat-slider>
+      <button mat-button (click)="submitTable()">Bestätigen</button>
+    </mat-card-content>
+  </mat-card>
+</div>
