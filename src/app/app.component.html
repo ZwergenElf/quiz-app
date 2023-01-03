@@ -1,5 +1,10 @@
 <!-- idea import client view as whole library app -->
-<app-question-board></app-question-board>
-<app-round-board></app-round-board>
-<app-scoreboard></app-scoreboard>
-<!-- idea point logging system -->
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button routerLink="/admin" mat-button color="primary">
+      Quiz Administration
+    </button>
+    <button routerLink="/editor" mat-button color="primary">Quiz Editor</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>

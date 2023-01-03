@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { QuestionService } from '../services/question.service';
-import { Category, Question } from '../types';
+import { QuestionService } from '../../services/question.service';
+import { Category, Question } from '../../types';
 
 @Component({
   selector: 'app-question-board',

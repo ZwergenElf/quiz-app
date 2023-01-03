@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Player } from '../types';
+import { Player } from '../../types';
 
 @Component({
   selector: 'app-scoreboard',
