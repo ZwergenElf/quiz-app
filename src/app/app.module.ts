@@ -17,7 +17,7 @@ import { QuizAdministrationComponent } from './quiz-administration/quiz-administ
 import { RoundBoardComponent } from './quiz-administration/round-board/round-board.component';
 import { ScoreboardComponent } from './quiz-administration/scoreboard/scoreboard.component';
 import { CreateTableFormComponent } from './quiz-editor/create-table-form/create-table-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -42,6 +42,7 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     MatSliderModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

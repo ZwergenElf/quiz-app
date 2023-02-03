@@ -5,7 +5,7 @@ body {
   height: 100%;
 }
 body {
-  margin: 0;
+  margin: 1rem;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
@@ -26,6 +26,5 @@ td {
   width: 100%;
   display: flex;
   justify-content: center;
-  padding: 1em;
   box-sizing: border-box;
 }

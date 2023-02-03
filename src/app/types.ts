@@ -3,13 +3,22 @@ export type Player = {
   name: string;
   score: number;
 };
-
+export type TableCategory = {
+  indexId: number;
+  key: string;
+  category: string;
+};
+export type TablePoints = {
+  indexId: number;
+  key: string;
+  points: number;
+};
 export type Category = string;
 
 export type Question = {
-  id: number;
-  category: string;
-  points: number;
+  // combination of col index + row index
+  // not using category + row points as id, to avoid possible duplicates
+  id: string;
   questionText: string;
   answer: string;
 };

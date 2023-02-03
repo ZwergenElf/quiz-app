@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
 import {
-  MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-} from '@angular/material/dialog';
-import { tap } from 'rxjs';
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { map, tap, Observable, combineLatest } from 'rxjs';
 import { QuestionService } from '../services/question.service';
+import { TableCategory, TablePoints } from '../types';
 import {
   CreateTableFormComponent,
   TableConfig,
@@ -17,22 +23,42 @@ import {
   styleUrls: ['./quiz-editor.component.scss'],
 })
 export class QuizEditorComponent {
+  canCreateQuestion: boolean = false;
   tableConfig: TableConfig | null = null;
-  rows: number[] = [];
-  cols: number[] = [];
+  cols: TableCategory[] = [];
+  rows: TablePoints[] = [];
+  createQuestionForm!: FormGroup;
 
   constructor(
     public dialog: MatDialog,
-    private _questionService: QuestionService
+    private _questionService: QuestionService,
+    private _formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
     this._questionService.tableCreate$
       .pipe(
         tap((config) => {
+          this.createQuestionForm = this._formBuilder.group({});
+          this.cols = [];
+          this.rows = [];
           if (config) {
-            this.cols = Array(config.cols).fill(0);
-            this.rows = Array(config.rows).fill(0);
+            for (let i = 0; i < config.cols; i++) {
+              this.cols.push({
+                indexId: i,
+                key: 'category' + i,
+                category: '',
+              });
+              this._addControl(this.cols[i].key, this._noDigits());
+            }
+            for (let i = 0; i < config.rows; i++) {
+              this.rows.push({
+                indexId: i,
+                key: 'points' + i,
+                points: 0,
+              });
+              this._addControl(this.rows[i].key);
+            }
           }
         })
       )
@@ -46,13 +72,47 @@ export class QuizEditorComponent {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(CreateTableFormComponent, {
+    this.dialog.open(CreateTableFormComponent, {
       minHeight: '10em',
       width: '20em',
     });
+  }
 
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed');
-    });
+  private _addControl(name: string, customValidator?: ValidatorFn) {
+    let newControl: FormControl;
+    if (customValidator) {
+      newControl = new FormControl(null, [
+        Validators.required,
+        customValidator,
+      ]);
+    } else {
+      newControl = new FormControl(null, [Validators.required]);
+    }
+
+    this.createQuestionForm.addControl(name, newControl);
+  }
+
+  getPointsControlAt(index: number): AbstractControl<number> {
+    return this.createQuestionForm.get(
+      'points' + index
+    ) as AbstractControl<number>;
+  }
+
+  getCategoryControlAt(index: number): AbstractControl<string> {
+    return this.createQuestionForm.get(
+      'category' + index
+    ) as AbstractControl<string>;
+  }
+
+  private _noDigits(): ValidatorFn {
+    return (
+      control: AbstractControl<string | null>
+    ): ValidationErrors | null => {
+      if (!control.value) {
+        return null;
+      }
+      const hasDigits = /\d/.test(control.value);
+      return !hasDigits ? null : { hasDigits: true };
+    };
   }
 }

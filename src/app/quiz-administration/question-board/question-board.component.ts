@@ -10,18 +10,14 @@ import { Category, Question } from '../../types';
 export class QuestionBoardComponent {
   questions: Array<Question> = [
     {
-      id: 1,
-      category: 'LoL Champions',
+      id: '01',
       answer: 'Illaoi',
       questionText: 'Illaoi?',
-      points: 200,
     },
     {
-      id: 2,
-      category: 'LoL Champions',
+      id: '00',
       answer: 'Illaoi',
       questionText: 'Not Illaoi?',
-      points: 400,
     },
   ];
 
@@ -29,7 +25,7 @@ export class QuestionBoardComponent {
 
   constructor(private questionService: QuestionService) {}
 
-  revealQuestion(questionId: number) {
+  revealQuestion(questionId: string) {
     const question = this.questions.find(
       (question) => question.id === questionId
     );

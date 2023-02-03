@@ -7,27 +7,51 @@
       Tabelle erstellen
     </button>
   </ng-container>
+
   <ng-container *ngIf="tableConfig">
-    <table>
-      <tr>
-        <th></th>
-        <th *ngFor="let col of cols">
-          <mat-form-field appearance="fill">
-            <input matInput placeholder="Kategorie" />
-          </mat-form-field>
-        </th>
-      </tr>
-      <tr *ngFor="let row of rows">
-        <td>
-          <mat-form-field appearance="fill">
-            <input matInput placeholder="Punkteanzahl" type="number" min="0" />
-          </mat-form-field>
-        </td>
-        <td *ngFor="let col of cols">
-          <button mat-button color="primary">Frage erstellen</button>
-        </td>
-      </tr>
-    </table>
+    <form [formGroup]="createQuestionForm">
+      <table>
+        <tr>
+          <th></th>
+          <th *ngFor="let col of cols">
+            <mat-form-field appearance="fill">
+              <input
+                matInput
+                [formControlName]="col.key"
+                placeholder="Kategorie"
+              />
+            </mat-form-field>
+          </th>
+        </tr>
+        <tr *ngFor="let row of rows; let rowIndex = index">
+          <td>
+            <mat-form-field appearance="fill">
+              <input
+                matInput
+                [formControlName]="row.key"
+                placeholder="Punkteanzahl"
+                type="number"
+                min="0"
+              />
+            </mat-form-field>
+          </td>
+          <ng-container *ngFor="let col of cols; let colIndex = index">
+            <td>
+              <button
+                *ngIf="
+                  getPointsControlAt(rowIndex).valid &&
+                  getCategoryControlAt(colIndex).valid
+                "
+                mat-button
+                color="primary"
+              >
+                Frage erstellen {{ rowIndex }} {{ colIndex }}
+              </button>
+            </td>
+          </ng-container>
+        </tr>
+      </table>
+    </form>
   </ng-container>
 </div>
 
