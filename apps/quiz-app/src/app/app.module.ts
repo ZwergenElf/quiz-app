@@ -18,6 +18,7 @@ import { RoundBoardComponent } from './quiz-administration/round-board/round-boa
 import { ScoreboardComponent } from './quiz-administration/scoreboard/scoreboard.component';
 import { CreateTableFormComponent } from './quiz-editor/create-table-form/create-table-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSliderModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

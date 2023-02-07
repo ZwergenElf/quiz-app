@@ -42,10 +42,11 @@
                   getPointsControlAt(rowIndex).valid &&
                   getCategoryControlAt(colIndex).valid
                 "
+                (click)="createQuestion()"
                 mat-button
                 color="primary"
               >
-                Frage erstellen {{ rowIndex }} {{ colIndex }}
+                Frage erstellen
               </button>
             </td>
           </ng-container>

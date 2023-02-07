@@ -104,6 +104,10 @@ export class QuizEditorComponent {
     ) as AbstractControl<string>;
   }
 
+  createQuestion(): void {
+
+  }
+
   private _noDigits(): ValidatorFn {
     return (
       control: AbstractControl<string | null>
