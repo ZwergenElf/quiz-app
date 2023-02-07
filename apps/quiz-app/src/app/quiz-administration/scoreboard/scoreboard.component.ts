@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Player } from '../../types';
+import { Player } from '../../../../../../libs/quiz-app-lib/src/lib/data-access/questions/types';
 
 @Component({
   selector: 'app-scoreboard',

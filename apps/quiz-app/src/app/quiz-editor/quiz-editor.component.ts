@@ -11,7 +11,10 @@ import {
 import { MatDialog } from '@angular/material/dialog';
 import { map, tap, Observable, combineLatest } from 'rxjs';
 import { QuestionService } from '../services/question.service';
-import { TableCategory, TablePoints } from '../types';
+import {
+  TableCategory,
+  TablePoints,
+} from '../../../../../libs/quiz-app-lib/src/lib/data-access/questions/types';
 import {
   CreateTableFormComponent,
   TableConfig,
@@ -104,9 +107,7 @@ export class QuizEditorComponent {
     ) as AbstractControl<string>;
   }
 
-  createQuestion(): void {
-
-  }
+  createQuestion(): void {}
 
   private _noDigits(): ValidatorFn {
     return (

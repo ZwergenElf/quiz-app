@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/**/*.ts",
+    "../../libs/quiz-app-lib/src/lib/data-access/questions/types.ts",
+    "../../libs/quiz-app-lib/src/lib/data-access/questions/types.ts"
+  ],
+  "compilerOptions": {
+    "types": ["jest", "node"]
+  }
+}

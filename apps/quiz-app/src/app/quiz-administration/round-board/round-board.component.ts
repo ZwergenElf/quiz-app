@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { QuestionService } from '../../services/question.service';
-import { Question } from '../../types';
+import { Question } from '../../../../../../libs/quiz-app-lib/src/lib/data-access/questions/types';
 
 @Component({
   selector: 'app-round-board',

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Question } from '../types';
+import { Question } from '../../../../../libs/quiz-app-lib/src/lib/data-access/questions/types';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { TableConfig } from '../quiz-editor/create-table-form/create-table-form.component';
 

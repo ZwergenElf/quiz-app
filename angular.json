@@ -2,6 +2,8 @@
   "version": 2,
   "projects": {
     "quiz-app": "apps/quiz-app",
+    "quiz-app-e2e": "apps/quiz-app-e2e",
+    "quiz-app-lib": "libs/quiz-app-lib",
     "quiz-server": "apps/quiz-server",
     "quiz-server-e2e": "apps/quiz-server-e2e"
   }

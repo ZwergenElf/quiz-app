@@ -23,12 +23,12 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    QuestionBoardComponent,
     ScoreboardComponent,
     RoundBoardComponent,
     QuizEditorComponent,
     QuizAdministrationComponent,
-    CreateTableFormComponent,
+    QuestionBoardComponent,
+    CreateTableFormComponent
   ],
   imports: [
     BrowserModule,

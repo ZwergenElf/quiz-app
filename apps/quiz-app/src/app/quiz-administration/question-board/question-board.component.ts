@@ -1,15 +1,15 @@
+import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
+import { Category, Question, QuestionDataService } from 'quiz-app-lib';
 import { Observable } from 'rxjs';
-import { QuestionDataService } from 'src/app/services/question-data.service';
 import { QuestionService } from '../../services/question.service';
-import { Category, Question } from '../../types';
 
 @Component({
   selector: 'app-question-board',
   templateUrl: './question-board.component.html',
   styleUrls: ['./question-board.component.scss'],
 })
-export class QuestionBoardComponent {
+export class QuestionBoardComponent implements OnInit {
   questions: Array<Question> = [
     {
       id: '01',
@@ -23,7 +23,7 @@ export class QuestionBoardComponent {
     },
   ];
 
-  testString = new Observable<string>();
+  testString = new Observable<Question>();
 
   categories: Array<Category> = ['LoL Champions'];
 

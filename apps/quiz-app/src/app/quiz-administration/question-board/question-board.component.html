@@ -1,4 +1,5 @@
-{{ testString | async }}
+{{ ((testString | async) ?? { answer: ''}).answer }}
+
 <div class="container">
   <table mat-table [dataSource]="questions">
     <ng-container matColumnDef="LoL Champions">
