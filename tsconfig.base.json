@@ -20,7 +20,7 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "paths": {
-      "quiz-app-lib": ["libs/quiz-app-lib/src/index.ts"]
+      "@quiz-app/data-access": ["libs/quiz-app-lib/src/index.ts"]
     },
     "rootDir": "."
   },

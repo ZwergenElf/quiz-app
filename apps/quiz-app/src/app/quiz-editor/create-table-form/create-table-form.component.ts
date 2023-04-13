@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { QuestionService } from '../../services/question.service';
+import { QuestionService } from '../../services/question/question.service';
 
 export type TableConfig = {
   cols: number;

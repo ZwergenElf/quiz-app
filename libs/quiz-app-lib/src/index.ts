@@ -1,2 +1,4 @@
-export * from './lib/data-access/questions/question.data.service';
-export * from './lib/data-access/questions/types';
+/*
+ * Public API Surface of quiz-app-lib
+ */
+export * from './lib/data-access/table/data-access-table.service';

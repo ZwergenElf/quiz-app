@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatSelectModule } from '@angular/material/select';
 import { QuestionBoardComponent } from './quiz-administration/question-board/question-board.component';
 import { QuizEditorComponent } from './quiz-editor/quiz-editor.component';
 import { QuizAdministrationComponent } from './quiz-administration/quiz-administration.component';
@@ -28,13 +29,14 @@ import { HttpClientModule } from '@angular/common/http';
     QuizEditorComponent,
     QuizAdministrationComponent,
     QuestionBoardComponent,
-    CreateTableFormComponent
+    CreateTableFormComponent,
   ],
   imports: [
     BrowserModule,
     MatButtonModule,
     MatTableModule,
     MatCardModule,
+    MatSelectModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,

@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,8 +7,35 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Question {
-  id String @id @default(cuid())
+model QuizField {
+  id       String  @id @default(cuid())
   question String
-  answer String
+  answer   String
+  colId    String
+  rowId    String
+  col      QuizCol @relation(fields: [colId], references: [id])
+  row      QuizRow @relation(fields: [rowId], references: [id])
+}
+
+model QuizRow {
+  id            String      @id @default(cuid())
+  points        Int?
+  tableId       String
+  questionField QuizField[]
+  table         QuizTable   @relation(fields: [tableId], references: [id])
+}
+
+model QuizCol {
+  id            String      @id @default(cuid())
+  category      String
+  tableId       String
+  table         QuizTable   @relation(fields: [tableId], references: [id])
+  questionField QuizField[]
+}
+
+model QuizTable {
+  id       String    @id @default(cuid())
+  name     String
+  tableCol QuizCol[]
+  tableRow QuizRow[]
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -9,60 +9,56 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { map, tap, Observable, combineLatest } from 'rxjs';
-import { QuestionService } from '../services/question.service';
-import {
-  TableCategory,
-  TablePoints,
-} from '../../../../../libs/quiz-app-lib/src/lib/data-access/questions/types';
+import { tap, Observable } from 'rxjs';
+import { QuestionService } from '../services/question/question.service';
+import { TableService } from '../services/table/table.service';
 import {
   CreateTableFormComponent,
   TableConfig,
 } from './create-table-form/create-table-form.component';
+import { QuizTable } from '@prisma/client';
 
 @Component({
   selector: 'app-quiz-editor',
   templateUrl: './quiz-editor.component.html',
   styleUrls: ['./quiz-editor.component.scss'],
 })
-export class QuizEditorComponent {
-  canCreateQuestion: boolean = false;
+export class QuizEditorComponent implements OnInit {
+  canCreateQuestion = false;
   tableConfig: TableConfig | null = null;
-  cols: TableCategory[] = [];
-  rows: TablePoints[] = [];
   createQuestionForm!: FormGroup;
+  tables$ = new Observable<QuizTable[]>();
+  selectedTable!: QuizTable;
 
   constructor(
     public dialog: MatDialog,
     private _questionService: QuestionService,
+    private _tableService: TableService,
     private _formBuilder: FormBuilder
   ) {}
 
   ngOnInit(): void {
+    this.tables$ = this._tableService.getTables();
     this._questionService.tableCreate$
       .pipe(
         tap((config) => {
-          this.createQuestionForm = this._formBuilder.group({});
-          this.cols = [];
-          this.rows = [];
-          if (config) {
-            for (let i = 0; i < config.cols; i++) {
-              this.cols.push({
-                indexId: i,
-                key: 'category' + i,
-                category: '',
-              });
-              this._addControl(this.cols[i].key, this._noDigits());
-            }
-            for (let i = 0; i < config.rows; i++) {
-              this.rows.push({
-                indexId: i,
-                key: 'points' + i,
-                points: 0,
-              });
-              this._addControl(this.rows[i].key);
-            }
-          }
+          // this.createQuestionForm = this._formBuilder.group({});
+          // this.cols = [];
+          // this.rows = [];
+          // if (config) {
+          //   for (let i = 0; i < config.cols; i++) {
+          //     this.cols.push({
+          //       category: '',
+          //     });
+          //     this._addControl(this.cols[i].id, this._noDigits());
+          //   }
+          //   for (let i = 0; i < config.rows; i++) {
+          //     this.rows.push({
+          //       points: 0,
+          //     });
+          //     this._addControl(this.rows[i].id);
+          //   }
+          // }
         })
       )
       .subscribe((config) => {
@@ -107,7 +103,7 @@ export class QuizEditorComponent {
     ) as AbstractControl<string>;
   }
 
-  createQuestion(): void {}
+  // createQuestion(): void {}
 
   private _noDigits(): ValidatorFn {
     return (

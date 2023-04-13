@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { QuestionService } from '../../services/question.service';
-import { Question } from '../../../../../../libs/quiz-app-lib/src/lib/data-access/questions/types';
+import { Component, OnInit } from '@angular/core';
+import { QuizField } from '@prisma/client';
+import { QuestionService } from '../../services/question/question.service';
 
 @Component({
   selector: 'app-round-board',
   templateUrl: './round-board.component.html',
   styleUrls: ['./round-board.component.scss'],
 })
-export class RoundBoardComponent {
-  question?: Question;
+export class RoundBoardComponent implements OnInit {
+  question?: QuizField;
 
   constructor(private _questionService: QuestionService) {}
 

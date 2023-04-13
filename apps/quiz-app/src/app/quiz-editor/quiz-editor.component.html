@@ -1,16 +1,23 @@
+<mat-form-field appearance="fill">
+  <mat-label>Templates</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let table of tables$ | async" [value]="table.id">
+      {{ table.name }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 <button mat-raised-button (click)="deleteTable()" color="warn">
   Tabelle löschen
 </button>
 <div class="container">
-  <ng-container *ngIf="!tableConfig">
-    <button mat-button (click)="openDialog()" color="primary">
-      Tabelle erstellen
-    </button>
-  </ng-container>
-
   <ng-container *ngIf="tableConfig">
     <form [formGroup]="createQuestionForm">
-      <table>
+      <!-- <mat-select [(value)]="selectedTable">
+        <mat-option *ngFor="let table of tables$ | async">{{
+          table.name
+        }}</mat-option>
+      </mat-select> -->
+      <!-- <table>
         <tr>
           <th></th>
           <th *ngFor="let col of cols">
@@ -51,7 +58,7 @@
             </td>
           </ng-container>
         </tr>
-      </table>
+      </table> -->
     </form>
   </ng-container>
 </div>

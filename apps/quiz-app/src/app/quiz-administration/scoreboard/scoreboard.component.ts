@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
-import { Player } from '../../../../../../libs/quiz-app-lib/src/lib/data-access/questions/types';
+import { Component, OnInit } from '@angular/core';
+export type Player = {
+  name: string,
+  score: number
+}
 
 @Component({
   selector: 'app-scoreboard',
   templateUrl: './scoreboard.component.html',
   styleUrls: ['./scoreboard.component.scss'],
 })
-export class ScoreboardComponent {
+export class ScoreboardComponent implements OnInit {
   players: Player[] = [];
   points = [200, 400, 600, 800];
 
-  givePoints: boolean = true;
+  givePoints = true;
 
   displayedColumnsPlayers: string[] = ['player', 'score', 'scoreActions'];
 

@@ -6,14 +6,18 @@
   "targets": {
     "build": {
       "executor": "@nrwl/webpack:webpack",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "target": "node",
         "compiler": "tsc",
         "outputPath": "dist/apps/quiz-server",
         "main": "apps/quiz-server/src/main.ts",
         "tsConfig": "apps/quiz-server/tsconfig.app.json",
-        "assets": ["apps/quiz-server/src/assets"],
+        "assets": [
+          "apps/quiz-server/src/assets"
+        ],
         "webpackConfig": "apps/quiz-server/webpack.config.js"
       },
       "configurations": {
@@ -37,14 +41,20 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/quiz-server/**/*.ts"]
+        "lintFilePatterns": [
+          "apps/quiz-server/**/*.ts"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/quiz-server/jest.config.ts",
         "passWithNoTests": true

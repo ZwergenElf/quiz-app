@@ -14,8 +14,8 @@ describe('AppService', () => {
   });
 
   describe('getData', () => {
-    it('should return "Welcome to quiz-server!"', () => {
-      expect(service.getData()).toEqual({ message: 'Welcome to quiz-server!' });
+    it('should return "Welcome to api!"', () => {
+      expect(service.getData()).toEqual({ message: 'Welcome to api!' });
     });
   });
 });

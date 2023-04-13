@@ -14,11 +14,9 @@ describe('AppController', () => {
   });
 
   describe('getData', () => {
-    it('should return "Welcome to quiz-server!"', () => {
+    it('should return "Welcome to api!"', () => {
       const appController = app.get<AppController>(AppController);
-      expect(appController.getData()).toEqual({
-        message: 'Welcome to quiz-server!',
-      });
+      expect(appController.getData()).toEqual({ message: 'Welcome to api!' });
     });
   });
 });
