@@ -113,8 +113,6 @@
           }
         }
       }
-    },
-    "quiz-server": "apps/quiz-server",
-    "quiz-server-e2e": "apps/quiz-server-e2e"
+    }
   }
 }

@@ -1,22 +1,37 @@
-<mat-form-field appearance="fill">
-  <mat-label>Templates</mat-label>
-  <mat-select>
-    <mat-option *ngFor="let table of tables$ | async" [value]="table.id">
-      {{ table.name }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-<button mat-raised-button (click)="deleteTable()" color="warn">
-  Tabelle löschen
-</button>
+<form
+  class="p-4 flex items-center gap-2"
+  [formGroup]="tableEditorSelectionForm"
+  (ngSubmit)="openCreateTableDialog()"
+>
+  <mat-form-field>
+    <mat-label>Templates</mat-label>
+    <mat-select formControlName="quizSelection">
+      <mat-option *ngFor="let table of tables$ | async" [value]="table.id">
+        {{ table.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Quiz Name</mat-label>
+    <input matInput formControlName="quizName" />
+  </mat-form-field>
+  <button
+    mat-icon-button
+    type="button"
+    *ngIf="selectedTableId !== null"
+    matTooltip="Lösche Tabelle"
+    (click)="openDeleteTableDialog(selectedTableId)"
+    color="warn"
+  >
+    <mat-icon fontIcon="delete"></mat-icon>
+  </button>
+  <button mat-icon-button matTooltip="Erstelle Tabelle" color="primary">
+    <mat-icon fontIcon="table"></mat-icon>
+  </button>
+</form>
 <div class="container">
   <ng-container *ngIf="tableConfig">
     <form [formGroup]="createQuestionForm">
-      <!-- <mat-select [(value)]="selectedTable">
-        <mat-option *ngFor="let table of tables$ | async">{{
-          table.name
-        }}</mat-option>
-      </mat-select> -->
       <!-- <table>
         <tr>
           <th></th>
@@ -62,5 +77,3 @@
     </form>
   </ng-container>
 </div>
-
-<!-- locate question in table with coordinate system -->

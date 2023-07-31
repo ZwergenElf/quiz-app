@@ -12,8 +12,20 @@ export class DataAccessTableService {
   public createTable(table: QuizTable) {
     return this._httpClient.post<QuizTable>(`localhost:3333/create`, table);
   }
-
-  public getTables(): Observable<QuizTable[]> {
-    return this._httpClient.get<QuizTable[]>(`localhost:3333/api/quiz-tables`);
+  public getTables() {
+    return this._httpClient.get<QuizTable[]>(
+      `http://localhost:3333/api/quiz-tables`
+    );
+  }
+  public updateTable(table: QuizTable) {
+    this._httpClient.patch<void>(
+      `http://localhost:3333/api/quiz-tables`,
+      table
+    );
+  }
+  public deleteTable(id: string) {
+    this._httpClient.delete<void>(
+      `http://localhost:3333/api/quiz-tables/${id}`
+    );
   }
 }

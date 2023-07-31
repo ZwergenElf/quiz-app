@@ -20,6 +20,9 @@ import { ScoreboardComponent } from './quiz-administration/scoreboard/scoreboard
 import { CreateTableFormComponent } from './quiz-editor/create-table-form/create-table-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { DeleteTableDialogComponent } from './quiz-editor/delete-table-dialog/delete-table-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     QuizAdministrationComponent,
     QuestionBoardComponent,
     CreateTableFormComponent,
+    DeleteTableDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +51,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatIconModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,7 @@
+<form class="flex flex-col p-4">
+  <p>Bist du sicher das du die Tabelle löschen willst?</p>
+  <div class="flex justify-evenly">
+    <button mat-raised-button (click)="this.dialogRef.close()">Nein</button>
+    <button mat-raised-button color="warn" (click)="deleteTable()">Ja</button>
+  </div>
+</form>

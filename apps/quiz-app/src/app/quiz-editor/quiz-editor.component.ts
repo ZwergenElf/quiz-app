@@ -9,14 +9,15 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { tap, Observable } from 'rxjs';
+import { tap, Observable, find } from 'rxjs';
 import { QuestionService } from '../services/question/question.service';
-import { TableService } from '../services/table/table.service';
 import {
   CreateTableFormComponent,
   TableConfig,
 } from './create-table-form/create-table-form.component';
 import { QuizTable } from '@prisma/client';
+import { DeleteTableDialogComponent } from './delete-table-dialog/delete-table-dialog.component';
+import { DataAccessTableService } from '@quiz-app/data-access';
 
 @Component({
   selector: 'app-quiz-editor',
@@ -26,18 +27,26 @@ import { QuizTable } from '@prisma/client';
 export class QuizEditorComponent implements OnInit {
   canCreateQuestion = false;
   tableConfig: TableConfig | null = null;
+  tableEditorSelectionForm!: FormGroup;
   createQuestionForm!: FormGroup;
   tables$ = new Observable<QuizTable[]>();
-  selectedTable!: QuizTable;
+  selectedTableId: string | null = null;
 
   constructor(
     public dialog: MatDialog,
     private _questionService: QuestionService,
-    private _tableService: TableService,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private _tableService: DataAccessTableService
   ) {}
 
   ngOnInit(): void {
+    this.tableEditorSelectionForm = this._formBuilder.group({
+      quizSelection: [null],
+      quizName: [''],
+    });
+    this._quizSelection.valueChanges.subscribe(
+      (tableId) => (this.selectedTableId = tableId)
+    );
     this.tables$ = this._tableService.getTables();
     this._questionService.tableCreate$
       .pipe(
@@ -66,11 +75,11 @@ export class QuizEditorComponent implements OnInit {
       });
   }
 
-  deleteTable() {
-    this._questionService.deleteTable();
+  openDeleteTableDialog(id: string): void {
+    this.dialog.open(DeleteTableDialogComponent, { data: { id } });
   }
 
-  openDialog(): void {
+  openCreateTableDialog(): void {
     this.dialog.open(CreateTableFormComponent, {
       minHeight: '10em',
       width: '20em',
@@ -115,5 +124,11 @@ export class QuizEditorComponent implements OnInit {
       const hasDigits = /\d/.test(control.value);
       return !hasDigits ? null : { hasDigits: true };
     };
+  }
+
+  private get _quizSelection() {
+    return this.tableEditorSelectionForm.get(
+      'quizSelection'
+    ) as AbstractControl<string>;
   }
 }
