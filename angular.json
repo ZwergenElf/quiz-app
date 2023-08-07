@@ -1,9 +1,9 @@
 {
   "version": 2,
   "projects": {
-    "api": {
-      "root": "apps/api",
-      "sourceRoot": "apps/api/src",
+    "quiz-back": {
+      "root": "apps/quiz-back",
+      "sourceRoot": "apps/quiz-back/src",
       "projectType": "application",
       "targets": {
         "build": {
@@ -12,11 +12,11 @@
           "options": {
             "target": "node",
             "compiler": "tsc",
-            "outputPath": "dist/apps/api",
-            "main": "apps/api/src/main.ts",
-            "tsConfig": "apps/api/tsconfig.app.json",
-            "assets": ["apps/api/src/assets"],
-            "webpackConfig": "apps/api/webpack.config.js"
+            "outputPath": "dist/apps/quiz-back",
+            "main": "apps/quiz-back/src/main.ts",
+            "tsConfig": "apps/quiz-back/tsconfig.app.json",
+            "assets": ["apps/quiz-back/src/assets"],
+            "webpackConfig": "apps/quiz-back/webpack.config.js"
           },
           "configurations": {
             "production": {
@@ -29,11 +29,11 @@
         "serve": {
           "executor": "@nrwl/js:node",
           "options": {
-            "buildTarget": "api:build"
+            "buildTarget": "quiz-back:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "api:build:production"
+              "buildTarget": "quiz-back:build:production"
             }
           }
         },
@@ -41,14 +41,14 @@
           "executor": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["apps/api/**/*.ts"]
+            "lintFilePatterns": ["apps/quiz-back/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
           "options": {
-            "jestConfig": "apps/api/jest.config.ts",
+            "jestConfig": "apps/quiz-back/jest.config.ts",
             "passWithNoTests": true
           },
           "configurations": {
@@ -61,15 +61,15 @@
       },
       "tags": []
     },
-    "api-e2e": {
-      "root": "apps/api-e2e",
-      "implicitDependencies": ["api"],
+    "quiz-back-e2e": {
+      "root": "apps/quiz-back-e2e",
+      "implicitDependencies": ["quiz-back"],
       "targets": {
         "e2e": {
           "executor": "@nrwl/jest:jest",
           "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
           "options": {
-            "jestConfig": "apps/api-e2e/jest.config.ts",
+            "jestConfig": "apps/quiz-back-e2e/jest.config.ts",
             "passWithNoTests": true
           }
         },
@@ -77,42 +77,45 @@
           "executor": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": ["apps/api-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": ["apps/quiz-back-e2e/**/*.{js,ts}"]
           }
         }
       }
     },
-    "quiz-app": "apps/quiz-app",
-    "quiz-app-e2e": "apps/quiz-app-e2e",
-    "quiz-app-lib": {
+    "quiz-front": "apps/quiz-front",
+    "quiz-front-e2e": "apps/quiz-front-e2e",
+    "quiz-front-lib-data-access": {
       "projectType": "library",
-      "root": "quiz-app-lib",
-      "sourceRoot": "libs/quiz-app-lib/src",
-      "prefix": "lib",
+      "root": "libs/quiz-front-lib/data-access",
+      "sourceRoot": "libs/quiz-front-lib/data-access/src",
+      "prefix": "app",
       "targets": {
-        "build": {
-          "executor": "@angular-devkit/build-angular:ng-packagr",
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
           "options": {
-            "project": "quiz-app-lib/ng-package.json"
+            "jestConfig": "libs/quiz-front-lib/data-access/jest.config.ts",
+            "passWithNoTests": true
           },
           "configurations": {
-            "production": {
-              "tsConfig": "quiz-app-lib/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "quiz-app-lib/tsconfig.lib.json"
+            "ci": {
+              "ci": true,
+              "codeCoverage": true
             }
-          },
-          "defaultConfiguration": "production"
+          }
         },
-        "test": {
-          "executor": "@angular-devkit/build-angular:karma",
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "tsConfig": "quiz-app-lib/tsconfig.spec.json",
-            "polyfills": ["zone.js", "zone.js/testing"]
+            "lintFilePatterns": [
+              "libs/quiz-front-lib/data-access/**/*.ts",
+              "libs/quiz-front-lib/data-access/**/*.html"
+            ]
           }
         }
-      }
+      },
+      "tags": ["scope:quiz-front", "type:data-access"]
     }
   }
 }
