@@ -39,3 +39,8 @@ model QuizTable {
   tableCol QuizCol[]
   tableRow QuizRow[]
 }
+
+model User {
+  username      String      @id @default(cuid())
+  password      String
+}

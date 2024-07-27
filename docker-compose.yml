@@ -1,10 +1,27 @@
 version: '3'
 services:
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  # frontend:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "4200:4200" # Port des Webpack-Servers innerhalb des Containers (Host:Container)
+  #   volumes:
+  #     - /app # Binden des gesamten Nx-Monorepo-Verzeichnisses mit dem Container ein
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
-      - "4200:4200" # Port des Webpack-Servers innerhalb des Containers (Host:Container)
+      - 5432:5432
     volumes:
-      - ./:/app # Binden des gesamten Nx-Monorepo-Verzeichnisses mit dem Container ein
+       - ./data:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
