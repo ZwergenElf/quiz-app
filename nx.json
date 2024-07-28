@@ -1,8 +1,6 @@
 {
   "namedInputs": {
-    "sharedGlobals": [
-      "package.json"
-    ]
+    "sharedGlobals": ["package.json"]
   },
   "targetDefaults": {
     "build": {
@@ -33,6 +31,9 @@
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {
+      "style": "scss"
+    },
+    "@nx/angular:component": {
       "style": "scss"
     }
   },

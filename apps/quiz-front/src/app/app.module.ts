@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DeleteTableDialogComponent } from './quiz-editor/delete-table-dialog/delete-table-dialog.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { DeleteTableDialogComponent } from './quiz-editor/delete-table-dialog/de
     QuestionBoardComponent,
     CreateTableFormComponent,
     DeleteTableDialogComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
