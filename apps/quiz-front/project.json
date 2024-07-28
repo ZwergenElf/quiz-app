@@ -4,19 +4,16 @@
   "projectType": "application",
   "sourceRoot": "apps/quiz-front/src",
   "prefix": "app",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/quiz-front",
         "index": "apps/quiz-front/src/index.html",
         "main": "apps/quiz-front/src/main.ts",
-        "polyfills": [
-          "zone.js"
-        ],
+        "polyfills": ["zone.js"],
         "tsConfig": "apps/quiz-front/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -60,10 +57,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "quiz-front:build:production"
+          "buildTarget": "quiz-front:build:production"
         },
         "development": {
-          "browserTarget": "quiz-front:build:development"
+          "buildTarget": "quiz-front:build:development"
         }
       },
       "defaultConfiguration": "development",
@@ -74,14 +71,12 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "quiz-front:build"
+        "buildTarget": "quiz-front:build"
       }
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
           "apps/quiz-front/**/*.ts",
@@ -91,9 +86,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "apps/quiz-front/jest.config.ts",
         "passWithNoTests": true
@@ -105,6 +98,5 @@
         }
       }
     }
-  },
-  "tags": []
+  }
 }
