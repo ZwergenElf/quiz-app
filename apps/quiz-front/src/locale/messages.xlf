@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="de-DE" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="612810536611185604" datatype="html">
+        <source>Frage: <x id="INTERPOLATION" equiv-text="{{ question.question }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/quiz-front/src/app/quiz-administration/round-board/round-board.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6344990012804080323" datatype="html">
+        <source>Antwort: <x id="INTERPOLATION" equiv-text="{{ question.answer }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/quiz-front/src/app/quiz-administration/round-board/round-board.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1832264942542584412" datatype="html">
+        <source>Spieler</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/quiz-front/src/app/quiz-administration/scoreboard/scoreboard.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3344972125280763675" datatype="html">
+        <source>Punkteanzahl</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/quiz-front/src/app/quiz-administration/scoreboard/scoreboard.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8744547135231089821" datatype="html">
+        <source>Punktevergabe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/quiz-front/src/app/quiz-administration/scoreboard/scoreboard.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5874400209857930002" datatype="html">
+        <source>Setze auf 0</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/quiz-front/src/app/quiz-administration/scoreboard/scoreboard.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1820862529541172621" datatype="html">
+        <source><x id="START_TAG_LABEL" ctype="x-label" equiv-text="&lt;label *ngIf=&quot;givePoints&quot;&gt;"/>Abzieh Modus<x id="CLOSE_TAG_LABEL" ctype="x-label" equiv-text="&lt;/label&gt;"/><x id="START_TAG_LABEL_1" ctype="x-label_1" equiv-text="&lt;label *ngIf=&quot;!givePoints&quot;&gt;"/>Hinzu Modus<x id="CLOSE_TAG_LABEL" ctype="x-label" equiv-text="&lt;/label&gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">apps/quiz-front/src/app/quiz-administration/scoreboard/scoreboard.component.html</context>
+          <context context-type="linenumber">41,42</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
