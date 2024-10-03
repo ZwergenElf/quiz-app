@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DeleteTableDialogComponent } from './quiz-editor/delete-table-dialog/delete-table-dialog.component';
+import { provideAuth0 } from '@auth0/auth0-angular';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,15 @@ import { DeleteTableDialogComponent } from './quiz-editor/delete-table-dialog/de
     MatIconModule,
     MatTooltipModule,
   ],
-  providers: [],
+  providers: [
+    provideAuth0({
+      domain: 'einbeinstrasse.eu.auth0.com',
+      clientId: '883DKSj9Avq2rfDGyoqcM0b1RZn6KAUF',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    })
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
