@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DeleteTableDialogComponent } from './quiz-editor/delete-table-dialog/delete-table-dialog.component';
 import { provideAuth0 } from '@auth0/auth0-angular';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [

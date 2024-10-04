@@ -3,7 +3,7 @@
   <mat-toolbar-row>
     <button
       mat-button
-      routerLink="/admin"
+      routerLink="/board"
       color="primary"
       routerLinkActive="mat-mdc-raised-button"
     >
@@ -17,6 +17,14 @@
     >
       Quiz Editor
     </button>
+    <span class="toolbar-spacer"></span>
+    <button
+    mat-raised-button
+    (click)="login()"
+    color="primary"
+  >
+    Login
+  </button>
   </mat-toolbar-row>
 </mat-toolbar>
 <router-outlet></router-outlet>

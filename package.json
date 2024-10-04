@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "nx",
-    "start": "nx serve quiz-front:serve:production",
+    "start": "nx serve quiz-front",
     "start:back": "nx serve quiz-back:serve:production",
     "quiz-front:build:prod": "nx build quiz-front:build:production",
     "watch": "nx build --watch --configuration=development",

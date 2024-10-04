@@ -2,24 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { QuizAdministrationComponent } from './quiz-administration/quiz-administration.component';
 import { QuizEditorComponent } from './quiz-editor/quiz-editor.component';
-import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
     component: QuizAdministrationComponent,
-    path: 'admin',
+    path: 'board',
   },
   {
     component: QuizEditorComponent,
     path: 'editor',
   },
   {
-    component: LoginComponent,
-    path: 'login',
-  },
-  {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/board',
     pathMatch: 'full',
   },
 ];
