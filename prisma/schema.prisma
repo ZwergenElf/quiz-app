@@ -1,10 +1,10 @@
 generator client {
   provider = "prisma-client-js"
+  output   = "../generated/prisma/client"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model QuizField {
@@ -41,6 +41,6 @@ model QuizTable {
 }
 
 model User {
-  username      String      @id @default(cuid())
-  password      String
+  username String @id @default(cuid())
+  password String
 }

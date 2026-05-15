@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 export type Player = {
-  name: string,
-  score: number
-}
+  name: string;
+  score: number;
+};
 
 @Component({
   selector: 'app-scoreboard',
   templateUrl: './scoreboard.component.html',
   styleUrls: ['./scoreboard.component.scss'],
+  standalone: false,
 })
 export class ScoreboardComponent implements OnInit {
   players: Player[] = [];

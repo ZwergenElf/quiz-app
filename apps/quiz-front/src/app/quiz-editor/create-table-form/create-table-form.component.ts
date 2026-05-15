@@ -10,6 +10,7 @@ export type TableConfig = {
   selector: 'app-create-table-form',
   templateUrl: './create-table-form.component.html',
   styleUrls: ['./create-table-form.component.scss'],
+  standalone: false,
 })
 export class CreateTableFormComponent {
   tableConfig: TableConfig = { cols: 1, rows: 1 };

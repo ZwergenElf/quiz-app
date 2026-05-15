@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -18,51 +16,41 @@ import { RoundBoardComponent } from './quiz-administration/round-board/round-boa
 import { ScoreboardComponent } from './quiz-administration/scoreboard/scoreboard.component';
 import { CreateTableFormComponent } from './quiz-editor/create-table-form/create-table-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DeleteTableDialogComponent } from './quiz-editor/delete-table-dialog/delete-table-dialog.component';
-import { provideAuth0 } from '@auth0/auth0-angular';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterOutlet } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ScoreboardComponent,
-    RoundBoardComponent,
+    QuestionBoardComponent,
     QuizEditorComponent,
     QuizAdministrationComponent,
-    QuestionBoardComponent,
+    RoundBoardComponent,
+    ScoreboardComponent,
     CreateTableFormComponent,
     DeleteTableDialogComponent,
   ],
   imports: [
+    MatToolbarModule,
+    RouterOutlet,
+    MatFormFieldModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatTooltipModule,
     BrowserModule,
+    AppRoutingModule,
     MatButtonModule,
     MatTableModule,
     MatCardModule,
-    MatSelectModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
     MatInputModule,
-    MatFormFieldModule,
     MatDialogModule,
     MatSliderModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatIconModule,
-    MatTooltipModule,
-  ],
-  providers: [
-    provideAuth0({
-      domain: 'einbeinstrasse.eu.auth0.com',
-      clientId: '883DKSj9Avq2rfDGyoqcM0b1RZn6KAUF',
-      authorizationParams: {
-        redirect_uri: window.location.origin
-      }
-    })
   ],
   bootstrap: [AppComponent],
 })

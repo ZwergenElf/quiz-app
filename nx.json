@@ -39,5 +39,6 @@
   },
   "nxCloudAccessToken": "ODkwYzhlNjEtZjIwNS00ODRjLWJiOGYtMDQ5MGNiOGM4NzlifHJlYWQtd3JpdGU=",
   "useDaemonProcess": false,
-  "defaultBase": "main"
+  "defaultBase": "main",
+  "analytics": false
 }

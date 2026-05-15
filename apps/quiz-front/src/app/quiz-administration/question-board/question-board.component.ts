@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-question-board',
   templateUrl: './question-board.component.html',
   styleUrls: ['./question-board.component.scss'],
+  standalone: false,
 })
 export class QuestionBoardComponent {
   revealQuestion(questionId: string) {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { QuizTable } from '@prisma/client';
+import { QuizTable } from 'generated/prisma/client';
 import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',

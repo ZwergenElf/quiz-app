@@ -4,6 +4,7 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
+  ReactiveFormsModule,
   ValidationErrors,
   ValidatorFn,
   Validators,
@@ -15,14 +16,15 @@ import {
   CreateTableFormComponent,
   TableConfig,
 } from './create-table-form/create-table-form.component';
-import { QuizTable } from '@prisma/client';
+import { QuizTable } from 'generated/prisma/client';
 import { DeleteTableDialogComponent } from './delete-table-dialog/delete-table-dialog.component';
-import { TableService } from 'quiz-front-lib/data-access';
+// import { TableService } from 'quiz-front-lib/data-access';
 
 @Component({
-selector: 'app-quiz-editor',
+  selector: 'app-quiz-editor',
   templateUrl: './quiz-editor.component.html',
   styleUrls: ['./quiz-editor.component.scss'],
+  standalone: false,
 })
 export class QuizEditorComponent implements OnInit {
   canCreateQuestion = false;
@@ -35,8 +37,7 @@ export class QuizEditorComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private _questionService: QuestionService,
-    private _formBuilder: FormBuilder,
-    private _tableService: TableService
+    private _formBuilder: FormBuilder // private _tableService: TableService
   ) {}
 
   ngOnInit(): void {
@@ -47,7 +48,7 @@ export class QuizEditorComponent implements OnInit {
     this._quizSelection.valueChanges.subscribe(
       (tableId) => (this.selectedTableId = tableId)
     );
-    this.tables$ = this._tableService.getTables();
+    // this.tables$ = this._tableService.getTables();
     this._questionService.tableCreate$
       .pipe(
         tap((config) => {

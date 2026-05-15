@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { TableConfig } from '../../quiz-editor/create-table-form/create-table-form.component';
-import { QuizField } from '@prisma/client';
+import { QuizField } from 'generated/prisma/client';
 
 @Injectable({
   providedIn: 'root',
