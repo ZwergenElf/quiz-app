@@ -103,7 +103,7 @@ importers:
         specifier: 21.2.13
         version: 21.2.13(@angular/compiler-cli@21.2.13(@angular/compiler@21.2.13)(typescript@5.9.3))(@angular/compiler@21.2.13)
       '@angular/material':
-        specifier: '21'
+        specifier: ^21.2.11
         version: 21.2.11(5301fe1ec15ddd4fe20a76c72041d82c)
       '@nestjs/schematics':
         specifier: 10.1.3
