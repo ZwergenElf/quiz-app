@@ -30,7 +30,6 @@
     "@nrwl/workspace": "^19.8.4",
     "@prisma/client-runtime-utils": "^7.8.0",
     "@tailwindcss/postcss": "^4.3.0",
-    "axios": "1.7.2",
     "dotenv": "^17.4.2",
     "reflect-metadata": "^0.1.14",
     "rxjs": "~7.5.7",
