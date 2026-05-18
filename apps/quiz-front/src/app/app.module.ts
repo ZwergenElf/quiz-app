@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
@@ -21,7 +21,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DeleteTableDialogComponent } from './quiz-editor/delete-table-dialog/delete-table-dialog.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterOutlet } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -35,15 +34,14 @@ import { RouterOutlet } from '@angular/router';
     DeleteTableDialogComponent,
   ],
   imports: [
+    AppRoutingModule,
     MatToolbarModule,
-    RouterOutlet,
     MatFormFieldModule,
     MatSelectModule,
     ReactiveFormsModule,
     MatIconModule,
     MatTooltipModule,
     BrowserModule,
-    AppRoutingModule,
     MatButtonModule,
     MatTableModule,
     MatCardModule,
